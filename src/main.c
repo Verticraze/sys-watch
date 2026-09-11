@@ -13,7 +13,10 @@ int main(void){
 	struct dirent *entry;
 
 	while((entry = readdir(dir)) != NULL){
-		printf("%s\n", entry->d_name);
+
+		if(entry->d_name[0] >= '0' && entry->d_name[0] <= '9'){
+			printf("%s\n", entry->d_name);
+		}
 	}
 
 	closedir(dir);
